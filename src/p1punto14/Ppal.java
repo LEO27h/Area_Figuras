@@ -1,29 +1,40 @@
 
 package p1punto14;
 
+import java.util.Scanner;
+
 public class Ppal {
-    static int seleccion;
     public static void main(String[] args) {
-        Figura Figura1= new Figura();
-        Figura1.Escoger_Figura();
-        if (seleccion==0){
-            Figura1.Area_Cuadrado();
+        Scanner lector;
+        lector = new Scanner(System.in);
+        int seleccion;
+        do{
+        System.out.println("0. Cuadrado");
+        System.out.println("1. Rectángulo");
+        System.out.println("2. Triángulo");
+        System.out.println("3. Círculo");
+        System.out.println("4. Para salir");
+        System.out.println("Ingrese la opción: ");
+        seleccion=lector.nextInt();
+        
+        switch(seleccion){
+            case 0:
+                Cuadrado cua = new Cuadrado();
+                cua.Area_Cuadrado();
+                break;
+            case 1:
+                Rectangulo rec = new Rectangulo();
+                rec.Area_Rectangulo();            
+                break;
+            case 2:
+                Triangulo tri = new Triangulo();
+                tri.Area_Triangulo();
+                break;
+            case 3:
+                Circulo cir = new Circulo();
+                cir.Area_Circulo();
+                break; 
         }
-        else if (seleccion==1){
-            Figura1.Area_Rectangulo();
-        }
-        else if (seleccion==2){
-            Figura1.Area_Triangulo();
-        }
-        else if (seleccion==3){
-            Figura1.Area_Circulo();
-        }
-        else {
-            Figura1.Escoger_Figura();
-        }
-        Figura1.Escoger_Figura();
-        //Figura1.Area_Rectangulo();
-        //Figura1.Area_Triangulo();
-        //Figura1.Area_Circulo();
+        }while(seleccion!=4);
    }
 }
